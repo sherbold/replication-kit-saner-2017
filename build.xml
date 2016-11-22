@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<project basedir="." default="build" name="weka_predictor">
+    <property environment="env"/>
+	<property name="build.location" value="bin" />
+	<property name="dist.location" value="dist" />
+	<property name="debuglevel" value="source,lines,vars" />
+    <property name="target" value="1.7"/>
+    <property name="source" value="1.7"/>
+	
+	<!-- jar-name and classpath -->
+	<property name="weka_predictor.jarname" value="weka_predictor.jar" />
+    <path id="weka_predictor.classpath">
+		<pathelement location="${build.location}" />
+        <pathelement location="lib/weka.jar"/>
+        <pathelement location="lib/mysql-connector-java-5.1.40-bin.jar"/>
+		<pathelement location="lib/commons-cli-1.3.1.jar"/>
+		<pathelement location="lib/javagd-0.6.1.jar"/>
+		<pathelement location="lib/JRI.jar"/>
+		<pathelement location="lib/JRIEngine.jar"/>
+		<pathelement location="lib/kxml2-min-2.3.0.jar"/>
+		<pathelement location="lib/REngine-0.6-8.1.jar"/>
+		<pathelement location="lib/xmlpull-1.1.3.1.jar"/>
+		<pathelement location="lib/xtream-1.4.2.jar"/>
+    </path>
+	
+	<!-- Initialization Targets -->
+    <target name="init.build">
+		<mkdir dir="${build.location}"/>
+    </target>
+	<target name="init.dist">
+		<mkdir dir="${dist.location}"/>
+    </target>
+	
+	<!-- Clean-up Targets -->
+	<target name="clean.build">
+		<delete dir="${build.location}"/>
+    </target>
+	<target name="clean.dist">
+		<delete dir="${dist.location}"/>
+    </target>
+	<target depends="clean.build,clean.dist" name="clean.all" />
+	
+	<!-- Build Targets -->
+	<target depends="init.build" name="build">
+		<javac debug="true" debuglevel="${debuglevel}"
+			destdir="${build.location}" source="${source}"
+			target="${target}" includeantruntime="false">
+			<src path="src" />
+			<classpath refid="weka_predictor.classpath" />
+		</javac>
+	</target>
+	
+	<!-- Distribution Targets -->
+	<target depends="build,init.dist" name="dist">
+		<!-- dist of main components, i.e., the console -->
+		<pathconvert property="dist.libs" pathsep=" ">
+			<mapper>
+				<chainedmapper>
+					<flattenmapper />
+					<globmapper from="*" to="lib/*" />
+				</chainedmapper>
+			</mapper>
+			<path>
+				<fileset dir="lib">
+					<include name="**/*.jar" />
+				</fileset>
+			</path>
+		</pathconvert>
+		<property name="dist.classpath"	value="${dist.libs}"></property>
+		<jar destfile="${dist.location}/${weka_predictor.jarname}" basedir="${build.location}">
+			<manifest>
+				<attribute name="Built-By" value="${user.name}" />
+				<attribute name="Main-Class" value="weka_predictor.SfpCpfpEvaluation" />
+				<attribute name="Class-Path" value="${dist.classpath}" />
+			</manifest>
+		</jar>
+		<copy includeemptydirs="false" todir="${dist.location}/lib">
+			<fileset dir="lib" />
+		</copy>
+	</target>
+	
+</project>
