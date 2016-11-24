@@ -38,10 +38,6 @@ Then, you need to prepare the environment variables of your system. First, add t
 
 Once the configuration of the environment is done, you may execute the experiments using the runexperiments.bat script. *Make sure that the JAVA binaries are also part of the system path, otherwise execution will fail!*
 
-Additional results folder
-=========================
-- TODO
-
 Building from source
 ====================
 The source code and libraries required for compilation are provided within the replication kit. The weka_predictor.jar can be built using the provided Ant script by calling "ant dist". The build results will then appear in the folder "dist". 
