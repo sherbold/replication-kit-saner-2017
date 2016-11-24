@@ -20,6 +20,8 @@
 		<pathelement location="lib/kxml2-min-2.3.0.jar"/>
 		<pathelement location="lib/REngine-0.6-8.1.jar"/>
 		<pathelement location="lib/xmlpull-1.1.3.1.jar"/>
+		<pathelement location="lib/pdm-RPlugin-ce-TRUNK-SNAPSHOT.jar"/>
+		<pathelement location="lib/rengine-weka-inject-classes.jar"/>
 		<pathelement location="lib/xtream-1.4.2.jar"/>
     </path>
 	

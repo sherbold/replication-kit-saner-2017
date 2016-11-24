@@ -3,39 +3,25 @@ csv_output_file_cpfp;report_cpfp.csv
 csv_output_file_cv;report_cv.csv
 sql_tbl_name;tbl_performance_sfp
 sql_tbl_name_cpfp;tbl_performance_cpfp
-file_names;A.arff,K.arff,L.arff,W_NASA_CM1_lang_C.arff,X_NASA_KC1_lang_C++.arff,Y_NASA_KC2_lang_C++.arff,Z_NASA_PC1_lang_c.arff
-#file_names;K.arff,A.arff
-#percentage_split;10.0,20.0,30.0,40.0,50.0,60.0,70.0,80.0,90.0,95.0
+file_names;A.arff,K.arff,L.arff
 percentage_split;40.0,50.0
 upsample_percentage;0,20,30,40,50,60,70,80,90,100,200,300,400,500,600,700,800,900,1000,1500,2000,2500,3000,3500,4000,5000,6000,7000,8000,9000,10000
-#upsample_percentage;50,100,800,5000
-#upsample_bias;0.0,0.1,0.2,0.3,0.4,0.5,1.0
 upsample_bias;0.0
-#upsample_settings;,-no-replacement
-#upsample_settings; ,-1 weka.filters.supervised.instance.SMOTE -C 1 -K 5 -P 100.0 -S 1
 upsample_settings; ,
 pos_class_index;1
 neg_class_index;0
-sql_server_adress;127.0.0.1
-sql_server_port;3306
-sql_user;root
-sql_db_name;sfp
+# Optional: sql_server_adress;127.0.0.1
+# Optional: sql_server_port;3306
+# Optional: sql_user;root
+# Optional: sql_db_name;sfp
 cv_num;5,10,20
 run_sfp;true
-run_cpfp;true
-run_cv;true
 output_arrf;false
 clear_sql_befor_import;true
-#weka_classifier;Ada Boost NB,weka.classifiers.meta.AdaBoostM1, -P 100 -S 1 -I 10 -W weka.classifiers.bayes.NaiveBayes -- -D
-#weka_classifier;Ada Boost RF,weka.classifiers.meta.AdaBoostM1, -P 100 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -- -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
-#weka_classifier;dcSVM,weka.classifiers.mlr.MLRClassifier, -learner classif.dcSVM -batch 100 -S 1
-#weka_classifier;LR,weka.classifiers.functions.Logistic, -R 1.0E-8 -M -1 -num-decimal-places 4
-#weka_classifier;NB,weka.classifiers.bayes.NaiveBayes, -D
-#weka_classifier;rbfSVM,weka.classifiers.functions.LibSVM, -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -Z -seed 1
-#weka_classifier;RF,weka.classifiers.trees.RandomForest, -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
-#weka_classifier;xgBoost,weka.classifiers.mlr.MLRClassifier, -learner classif.xgboost -batch 100 -S 1
-#weka_classifier;AutoWEKA,weka.classifiers.meta.AutoWEKAClassifier, -seed 123 -timeLimit 5 -memLimit 1024 -nBestConfigs 1
-weka_classifier;RPART,weka.classifiers.mlr.MLRClassifier, -learner classif.rpart -batch 100 -S 1
-weka_classifier;random tree,weka.classifiers.trees.RandomTree, -K 0 -M 1.0 -V 0.001 -S 1
-weka_classifier;J48,weka.classifiers.trees.J48, -C 0.25 -M 2
-weka_classifier;JRip,weka.classifiers.rules.JRip, -F 3 -N 2.0 -O 2 -S 1
+weka_classifier;Ada Boost NB,weka.classifiers.meta.AdaBoostM1, -P 100 -S 1 -I 10 -W weka.classifiers.bayes.NaiveBayes -- -D
+weka_classifier;Ada Boost RF,weka.classifiers.meta.AdaBoostM1, -P 100 -S 1 -I 10 -W weka.classifiers.trees.RandomForest -- -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
+weka_classifier;xgBoost,weka.classifiers.mlr.MLRClassifier, -learner classif.xgboost -batch 100 -S 1
+weka_classifier;rbfSVM,weka.classifiers.functions.LibSVM, -S 0 -K 2 -D 3 -G 0.0 -R 0.0 -N 0.5 -M 40.0 -C 1.0 -E 0.001 -P 0.1 -Z -seed 1
+weka_classifier;dcSVM,weka.classifiers.mlr.MLRClassifier, -learner classif.dcSVM -batch 100 -S 1
+weka_classifier;RF,weka.classifiers.trees.RandomForest, -P 100 -I 100 -num-slots 1 -K 0 -M 1.0 -V 0.001 -S 1
+weka_classifier;NB,weka.classifiers.bayes.NaiveBayes, -D

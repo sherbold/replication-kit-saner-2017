@@ -1,0 +1,1 @@
+java -jar .\weka_predictor.jar -b ./data -s./config/settings.csv -r
