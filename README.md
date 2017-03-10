@@ -1,3 +1,5 @@
+[![DOI](https://zenodo.org/badge/74369843.svg)](https://zenodo.org/badge/latestdoi/74369843)
+
 Introduction
 ============
 Within this archive you find the replication package for the paper "Performance Tuning for Automotive Software Fault Prediction" by Harald Altinger, Steffen Herbold, Friederike Schneemann, Jens Grabowski, and Franz Wotawa currently submitted to the SANER 2017 Industry Track.  The aim of this replication package is to allow other researchers to replicate our results with minimal effort. 
